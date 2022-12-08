@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { FAKE_POPULARS, FAKE_RECOMMENDATIONS } from './fake_data'
 import { BASE_URL } from '../config'
 const API_KEY_PARAM = process.env.REACT_APP_API_KEY_PARAM
 
@@ -7,7 +6,6 @@ export class TVShowAPI {
   static async fetchPopulars() {
     const response = await axios.get(`${BASE_URL}tv/popular${API_KEY_PARAM}`)
     return response.data.results
-    // return FAKE_POPULARS
   }
 
   static async fetchRecommendations(tvShowId) {
@@ -15,7 +13,6 @@ export class TVShowAPI {
       `${BASE_URL}tv/${tvShowId}/recommendations${API_KEY_PARAM}`,
     )
     return response.data.results
-    // return FAKE_RECOMMENDATIONS
   }
 
   static async fetchByTitle(title) {
